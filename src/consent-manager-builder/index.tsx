@@ -104,6 +104,7 @@ interface Props {
    * Use default categories set by Consent Manager instead of detinations
    */
   useDefaultCategories?: boolean
+  loadOptions?: SegmentAnalytics.SegmentOpts
 }
 
 interface RenderProps {
@@ -224,7 +225,8 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
       cdnHost = ConsentManagerBuilder.defaultProps.cdnHost,
       shouldReload = ConsentManagerBuilder.defaultProps.shouldReload,
       devMode = ConsentManagerBuilder.defaultProps.devMode,
-      useDefaultCategories = ConsentManagerBuilder.defaultProps.useDefaultCategories
+      useDefaultCategories = ConsentManagerBuilder.defaultProps.useDefaultCategories,
+      loadOptions
     } = this.props
 
     // TODO: add option to run mapCustomPreferences on load so that the destination preferences automatically get updated
@@ -274,7 +276,8 @@ export default class ConsentManagerBuilder extends Component<Props, State> {
       shouldReload,
       devMode,
       defaultDestinationBehavior,
-      categoryPreferences: preferences
+      categoryPreferences: preferences,
+      loadOptions
     })
 
     this.setState({
